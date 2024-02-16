@@ -4,6 +4,7 @@ import { BaseSlashCommandInteraction } from '../../common/classes/interactions';
 import { ExtendedClient } from '../../types/clientTypes';
 import { checkChannelPermissionViewable } from '../../common/validation/permissionValidator';
 import { loggerService } from '../../common/services/logger';
+import { createMockClient, createMockInteraction } from '../mock/base';
 
 jest.mock('../../common/validation/permissionValidator');
 jest.mock('../../common/services/logger', () => ({
@@ -21,15 +22,8 @@ describe('interactionCommandHandler', () => {
     let interactionIdentifier: string;
 
     beforeEach(() => {
-        mockInteraction = {
-            reply: jest.fn(),
-            commandName: 'testCommand'
-        } as unknown as ChatInputCommandInteraction;
-
-        client = {
-            slashCommandInteractions: new Map<string, BaseSlashCommandInteraction>()
-        } as unknown as ExtendedClient;
-
+        mockInteraction = createMockInteraction();
+        client = createMockClient();
         executionId = '123';
         interactionIdentifier = 'testCommand';
     });
