@@ -4,7 +4,6 @@ import {
     APIMessageActionRowComponent,
     ButtonBuilder,
     ButtonStyle,
-    ChatInputCommandInteraction,
     ComponentType,
     EmbedBuilder,
     EmbedFooterData,
@@ -13,11 +12,9 @@ import {
 import { BaseComponentInteraction } from '../../common/classes/ComponentInteraction';
 import { BaseComponentParams, BaseComponentReturnType } from '../../types/interactionTypes';
 import { checkQueueCurrentTrack, checkQueueExists } from '../../common/validation/queueValidator';
-import { checkInVoiceChannel, checkSameVoiceChannel } from '../../common/validation/voiceChannelValidator';
 import { useServerTranslator, Translator } from '../../common/utils/localeUtil';
 import { formatDuration, formatRepeatModeDetailed, formatSlashCommand } from '../../common/utils/formattingUtils';
 import { Logger } from '../../common/services/logger';
-import { usePlayer } from 'discord-player';
 
 class ActionShowQueueButton extends BaseComponentInteraction {
     constructor() {
@@ -27,14 +24,12 @@ class ActionShowQueueButton extends BaseComponentInteraction {
     async execute(params: BaseComponentParams): BaseComponentReturnType {
         const { executionId, interaction } = params;
         const logger = this.getLogger(this.name, executionId, interaction);
-        const player = usePlayer(interaction.guild!);
 
         const queue: GuildQueue = useQueue(interaction.guild!.id)!;
 
         await this.runValidators({ interaction, queue, executionId }, [checkQueueExists, checkQueueCurrentTrack]);
 
         logger.debug('Handling queue pagination.');
-        console.log(player?.queue);
         return await this.handlePaginateQueue(interaction, queue, logger);
     }
 
@@ -86,6 +81,7 @@ class ActionShowQueueButton extends BaseComponentInteraction {
         const response = await interaction.reply({
             embeds: [queueResponseEmbed.toJSON()],
             components: [actionRow],
+            ephemeral: true,
             fetchReply: true
         });
 

@@ -1,8 +1,7 @@
 import config from 'config';
-import { GuildQueue, GuildQueueHistory, PlayerTimestamp, Track } from 'discord-player';
+import { GuildQueue, PlayerTimestamp, Track } from 'discord-player';
 import {
     ApplicationCommandOptionChoiceData,
-    ChatInputCommandInteraction,
     EmbedFooterData,
     Interaction,
     Message,
@@ -106,7 +105,6 @@ export abstract class BaseInteraction {
         queue: GuildQueue,
         translator: Translator
     ): EmbedFooterData {
-
         const pageIndex: number = currentPage;
         const tracksPerPage: number = 10;
         const totalPages: number = Math.max(1, Math.ceil(queue.tracks.data.length / tracksPerPage));

@@ -28,9 +28,14 @@ module.exports = {
         if (fetchLastAnnounceMessage && fetchLastAnnounceMessage.deletable) {
             try {
                 await fetchLastAnnounceMessage.delete();
-                logger.debug(`playerFinish event: Now-playing message with the ID ${fetchLastAnnounceMessage.id} deleted.`);
+                logger.debug(
+                    `playerFinish event: Now-playing message with the ID ${fetchLastAnnounceMessage.id} deleted.`
+                );
             } catch (error) {
-                logger.error(error, `playerFinish event: Error deleting previous now-playing message with the ID ${fetchLastAnnounceMessage.id}.`);
+                logger.error(
+                    error,
+                    `playerFinish event: Error deleting previous now-playing message with the ID ${fetchLastAnnounceMessage.id}.`
+                );
             }
         }
     }
