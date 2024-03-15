@@ -241,7 +241,7 @@ class HistoryCommand extends BaseSlashCommandInteraction {
         history: GuildQueueHistory,
         translator: Translator
     ): EmbedFooterData {
-        const pagination = this.getFooterDisplayPageInfo(interaction, history, translator);
+        const pagination = this.getFooterDisplayPageInfo((interaction.options.getInteger('page') || 1) - 1, history, translator);
 
         const fullFooterData = {
             text: `${pagination.text}`
