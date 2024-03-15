@@ -1,7 +1,8 @@
 import config from 'config';
-import { GuildQueue, PlayerTimestamp, Track } from 'discord-player';
+import { GuildQueue, GuildQueueHistory, PlayerTimestamp, Track } from 'discord-player';
 import {
     ApplicationCommandOptionChoiceData,
+    ChatInputCommandInteraction,
     EmbedFooterData,
     Interaction,
     Message,
@@ -102,24 +103,17 @@ export abstract class BaseInteraction {
 
     protected getFooterDisplayPageInfo(
         currentPage: number,
-        queue: GuildQueue,
+        queue: GuildQueue | GuildQueueHistory,
         translator: Translator
     ): EmbedFooterData {
         const pageIndex: number = currentPage;
-        const tracksPerPage: number = 10;
-        const totalPages: number = Math.max(1, Math.ceil(queue.tracks.data.length / tracksPerPage));
+        const totalPages: number = Math.ceil(queue.tracks.data.length / 10) || 1;
         return {
-            text:
-                totalPages === 1
-                    ? translator('musicPlayerCommon.footerPageNumber_one', {
-                          page: pageIndex + 1,
-                          pageCount: totalPages
-                      })
-                    : translator('musicPlayerCommon.footerPageNumber', {
-                          page: pageIndex + 1,
-                          pageCount: totalPages,
-                          count: queue.tracks.data.length
-                      })
+            text: translator('musicPlayerCommon.footerPageNumber', {
+                page: pageIndex + 1,
+                pageCount: totalPages,
+                count: queue.tracks.data.length
+            })
         };
     }
 
