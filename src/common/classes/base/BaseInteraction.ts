@@ -120,7 +120,7 @@ export abstract class BaseInteraction {
                     : translator('musicPlayerCommon.footerPageNumber', {
                           page: pageIndex + 1,
                           pageCount: totalPages,
-                          count: queue.data
+                          count: queue.tracks.data.length
                       })
         };
     }
