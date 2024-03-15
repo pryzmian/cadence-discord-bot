@@ -1,6 +1,6 @@
 import { GuildQueue, GuildQueueHistory, Track, useHistory, useQueue } from 'discord-player';
 import { ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import { BaseSlashCommandInteraction } from '../../common/classes/interactions';
+import { BaseSlashCommandInteraction } from '../../common/classes/SlashCommandInteraction';
 import { BaseSlashCommandParams, BaseSlashCommandReturnType } from '../../types/interactionTypes';
 import { checkHistoryExists, checkQueueCurrentTrack } from '../../common/validation/queueValidator';
 import { checkInVoiceChannel, checkSameVoiceChannel } from '../../common/validation/voiceChannelValidator';

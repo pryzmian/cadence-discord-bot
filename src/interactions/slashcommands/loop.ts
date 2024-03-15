@@ -7,7 +7,7 @@ import {
     SlashCommandIntegerOption
 } from 'discord.js';
 import { Logger } from '../../common/services/logger';
-import { BaseSlashCommandInteraction } from '../../common/classes/interactions';
+import { BaseSlashCommandInteraction } from '../../common/classes/SlashCommandInteraction';
 import { BaseSlashCommandParams, BaseSlashCommandReturnType } from '../../types/interactionTypes';
 import { checkQueueExists } from '../../common/validation/queueValidator';
 import { checkInVoiceChannel, checkSameVoiceChannel } from '../../common/validation/voiceChannelValidator';

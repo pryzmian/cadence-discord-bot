@@ -204,6 +204,8 @@
                     }
                 }
             },
+            "paginationError": "{{icon}} **Oops!**\nThere was an error while trying to paginate the queue. Please try again later.",
+            "noMorePages": "{{icon}} **Oops!**\nThere are no more pages in the queue, only **one** page is available, add more tracks with {{playCommand}} command!",
             "tracksInQueueTitle": "{{icon}} **Tracks in queue**",
             "emptyQueue": "The queue is empty, add some tracks with {{playCommand}}!",
             "estimatedDuration": "Estimated duration: {{duration}}",
@@ -508,6 +510,7 @@
         }
     },
     "validation": {
+        "cannotSkipPausedTrack": "{{icon}} **Cannot skip track**\nThe current track cannot be skipped while it is paused. Please resume the track with before skipping.",
         "cannotJoinVoiceOrTalk": "{{icon}} **Oops!**\nI do not have permission to play audio in the voice channel {{channel}}.\n\nPlease make sure I have the **`Connect`** and **`Speak`** permissions in this voice channel.",
         "cannotSendMessageInChannel": "{{icon}} **Oops!**\nI do not have permission to send message replies in the channel {{channel}}.\n\nPlease make sure I have the **`View Channel`** permission in this text channel.",
         "historyDoesNotExist": "{{icon}} **Oops!**\nThere are no tracks in the history and nothing currently playing. First add some tracks with {{playCommand}}!",

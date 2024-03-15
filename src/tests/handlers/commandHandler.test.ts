@@ -1,6 +1,6 @@
 import { handleCommand } from '../../handlers/interactionCommandHandler';
 import { ChatInputCommandInteraction } from 'discord.js';
-import { BaseSlashCommandInteraction } from '../../common/classes/interactions';
+import { BaseSlashCommandInteraction } from '../../common/classes/SlashCommandInteraction';
 import { ExtendedClient } from '../../types/clientTypes';
 import { checkChannelPermissionViewable } from '../../common/validation/permissionValidator';
 import { loggerService } from '../../common/services/logger';

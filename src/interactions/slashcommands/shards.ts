@@ -5,7 +5,7 @@ import {
     EmbedFooterData,
     SlashCommandBuilder
 } from 'discord.js';
-import { BaseSlashCommandInteraction } from '../../common/classes/interactions';
+import { BaseSlashCommandInteraction } from '../../common/classes/SlashCommandInteraction';
 import { ExtendedClient } from '../../types/clientTypes';
 import { BaseSlashCommandParams, BaseSlashCommandReturnType, ShardInfo } from '../../types/interactionTypes';
 import { checkValidGuildId } from '../../common/validation/systemCommandValidator';

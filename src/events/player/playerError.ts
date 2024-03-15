@@ -3,7 +3,7 @@ import { BaseGuildTextChannel, EmbedBuilder } from 'discord.js';
 import { randomUUID as uuidv4 } from 'node:crypto';
 import { loggerService, Logger } from '../../common/services/logger';
 import { BotOptions, EmbedOptions, SystemOptions } from '../../types/configTypes';
-import { ExtendedGuildQueuePlayerNode } from '../../types/eventTypes';
+import { ExtendedGuildQueue } from '../../types/eventTypes';
 import { useLanguageTranslator } from '../../common/utils/localeUtil';
 
 const embedOptions: EmbedOptions = config.get('embedOptions');
@@ -15,7 +15,7 @@ module.exports = {
     name: 'playerError',
     isDebug: false,
     isPlayerEvent: true,
-    execute: async (queue: ExtendedGuildQueuePlayerNode, error: Error) => {
+    execute: async (queue: ExtendedGuildQueue, error: Error) => {
         const executionId: string = uuidv4();
         const logger: Logger = loggerService.child({
             module: 'event',

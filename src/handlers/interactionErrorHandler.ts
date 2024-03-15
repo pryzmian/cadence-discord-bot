@@ -7,7 +7,8 @@ import {
     InteractionType,
     MessageComponentInteraction
 } from 'discord.js';
-import { CustomError, InteractionValidationError } from '../common/classes/interactions';
+import { CustomError } from '../common/classes/CustomError';
+import { InteractionValidationError } from '../common/classes/InteractionValidationError';
 import { loggerService, Logger } from '../common/services/logger';
 import { BotOptions, EmbedOptions } from '../types/configTypes';
 import { useServerTranslator } from '../common/utils/localeUtil';

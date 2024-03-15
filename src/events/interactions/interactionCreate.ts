@@ -7,7 +7,7 @@ import {
     MessageComponentInteraction
 } from 'discord.js';
 import { randomUUID as uuidv4 } from 'node:crypto';
-import { CustomError } from '../../common/classes/interactions';
+import { CustomError } from '../../common/classes/CustomError';
 import { handleAutocomplete } from '../../handlers/interactionAutocompleteHandler';
 import { handleCommand } from '../../handlers/interactionCommandHandler';
 import { handleComponent } from '../../handlers/interactionComponentHandler';

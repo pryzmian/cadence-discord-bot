@@ -5,7 +5,7 @@ import { randomUUID as uuidv4 } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { Logger } from '../common/services/logger';
-import { BaseSlashCommandInteraction } from '../common/classes/interactions';
+import { BaseSlashCommandInteraction } from '../common/classes/SlashCommandInteraction';
 import { loggerService } from '../common/services/logger';
 import { SystemOptions } from '../types/configTypes';
 

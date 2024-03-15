@@ -1,6 +1,6 @@
 import helpCommand from '../../../interactions/slashcommands/help';
 import Discord, { Client, SlashCommandNumberOption, ChatInputCommandInteraction } from 'discord.js';
-import { BaseSlashCommandInteraction } from '../../../common/classes/interactions';
+import { BaseSlashCommandInteraction } from '../../../common/classes/SlashCommandInteraction';
 import { ExtendedClient } from '../../../types/clientTypes';
 
 describe('Discord bot command test', () => {

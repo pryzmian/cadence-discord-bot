@@ -1,5 +1,5 @@
-import { ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import { BaseSlashCommandInteraction } from '../../common/classes/interactions';
+import { ChatInputCommandInteraction, EmbedBuilder, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js';
+import { BaseSlashCommandInteraction } from '../../common/classes/SlashCommandInteraction';
 import { BaseSlashCommandParams, BaseSlashCommandReturnType } from '../../types/interactionTypes';
 import { localizeCommand, useServerTranslator } from '../../common/utils/localeUtil';
 import guildDatabaseClient from '../../common/services/guildDatabaseClient';
@@ -10,6 +10,7 @@ class SettingsCommand extends BaseSlashCommandInteraction {
         const data = localizeCommand(
             new SlashCommandBuilder()
                 .setName('settings')
+                .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
                 .addSubcommand((subcommand) => subcommand.setName('view'))
                 .addSubcommand((subcommand) =>
                     subcommand
@@ -47,7 +48,9 @@ class SettingsCommand extends BaseSlashCommandInteraction {
                         )
                 )
         );
-        super(data);
+        const isNew: boolean = true;
+        const isBeta: boolean = true;
+        super(data, isNew, isBeta);
     }
 
     async execute(params: BaseSlashCommandParams): BaseSlashCommandReturnType {
@@ -70,7 +73,7 @@ class SettingsCommand extends BaseSlashCommandInteraction {
             case 'default-volume':
                 await this.handleDefaultVolumeChange(logger, executionId, interaction);
                 break;
-            case 'defaul-search-engine':
+            case 'default-search-engine':
                 await this.handleDefaultSearchEngineChange(logger, executionId, interaction);
                 break;
             default:
@@ -101,7 +104,7 @@ class SettingsCommand extends BaseSlashCommandInteraction {
             const settingsArray = [
                 `> ・**${translator('commands.settings.metadata.options.bot-language.name')}**: ${database?.locale ?? 'English'}`,
                 `> ・**${translator('commands.settings.metadata.options.default-volume.name')}**: ${database?.defaultVolume ?? 50}%`,
-                `> ・**${translator('commands.settings.metadata.options.default-search-engine.name')}**: ${database?.defaultSearchEngine}`
+                `> ・**${translator('commands.settings.metadata.options.default-search-engine.name')}**: ${database?.defaultSearchEngine ?? 'Spotify'}`
             ];
 
             await interaction.editReply({
@@ -206,7 +209,7 @@ class SettingsCommand extends BaseSlashCommandInteraction {
         try {
             await guildDatabaseClient.createOrUpdateGuildConfig(
                 executionId,
-                guildId!,
+                guildId as string,
                 { defaultVolume: volume },
                 interaction
             );
@@ -251,14 +254,14 @@ class SettingsCommand extends BaseSlashCommandInteraction {
         executionId: string,
         interaction: ChatInputCommandInteraction
     ): Promise<void> {
-        const engine = interaction.options.getString('provider')!;
+        const engine = interaction.options.getString('provider') as string;
         const translator = useServerTranslator(interaction);
         const guildId = interaction.guildId;
 
         try {
             await guildDatabaseClient.createOrUpdateGuildConfig(
                 executionId,
-                guildId!,
+                guildId as string,
                 { defaultSearchEngine: engine },
                 interaction
             );

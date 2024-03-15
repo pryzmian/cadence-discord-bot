@@ -1,5 +1,5 @@
 import { MessageComponentInteraction } from 'discord.js';
-import { BaseComponentInteraction } from '../common/classes/interactions';
+import { BaseComponentInteraction } from '../common/classes/ComponentInteraction';
 import { loggerService, Logger } from '../common/services/logger';
 import { ExtendedClient } from '../types/clientTypes';
 import { checkChannelPermissionViewable } from '../common/validation/permissionValidator';

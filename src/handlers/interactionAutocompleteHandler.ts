@@ -1,5 +1,5 @@
 import { AutocompleteInteraction } from 'discord.js';
-import { BaseAutocompleteInteraction } from '../common/classes/interactions';
+import { BaseAutocompleteInteraction } from '../common/classes/AutocompleteInteraction';
 import { loggerService, Logger } from '../common/services/logger';
 import { ExtendedClient } from '../types/clientTypes';
 

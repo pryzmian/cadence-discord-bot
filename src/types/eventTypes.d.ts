@@ -1,12 +1,12 @@
 import { BaseGuildTextChannel, Message } from 'discord.js';
-import { GuildQueuePlayerNode } from 'discord-player';
+import { GuildQueue } from 'discord-player';
 import { ExtendedClient } from './clientTypes';
 
 export type ClientEventArguments = unknown[];
 export type ProcessEventArguments = unknown[];
 export type PlayerEventArguments = unknown[];
 
-export type ExtendedGuildQueuePlayerNode = {
+export type ExtendedGuildQueue = {
     metadata:
         | undefined
         | {
@@ -14,4 +14,4 @@ export type ExtendedGuildQueuePlayerNode = {
               channel: BaseGuildTextChannel;
               lastMessage: Message;
           };
-} & GuildQueuePlayerNode<unknown>;
+} & GuildQueue<unknown>;

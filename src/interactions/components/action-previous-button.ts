@@ -1,6 +1,6 @@
 import { GuildQueue, GuildQueueHistory, Track, useHistory, useQueue } from 'discord-player';
 import { EmbedBuilder, MessageComponentInteraction } from 'discord.js';
-import { BaseComponentInteraction } from '../../common/classes/interactions';
+import { BaseComponentInteraction } from '../../common/classes/ComponentInteraction';
 import { BaseComponentParams, BaseComponentReturnType } from '../../types/interactionTypes';
 import { checkQueueCurrentTrack, checkQueueExists } from '../../common/validation/queueValidator';
 import { checkInVoiceChannel, checkSameVoiceChannel } from '../../common/validation/voiceChannelValidator';
@@ -32,7 +32,26 @@ class ActionPreviousButton extends BaseComponentInteraction {
             return await this.handleAlreadySkipped(interaction, translator);
         }
 
+        if (queue.node.isPaused()) {
+            return await this.handleCannotSkipOnPaused(interaction, translator);
+        }
+
         return await this.handleBackToPreviousTrack(logger, interaction, history, translator);
+    }
+
+    private async handleCannotSkipOnPaused(interaction: MessageComponentInteraction, translator: Translator) {
+        return await interaction.editReply({
+            embeds: [
+                new EmbedBuilder()
+                    .setDescription(
+                        translator('validation.cannotSkipPausedTrack', {
+                            icon: this.embedOptions.icons.warning
+                        })
+                    )
+                    .setColor(this.embedOptions.colors.warning)
+            ],
+            components: []
+        });
     }
 
     private async handleBackToPreviousTrack(
@@ -57,7 +76,7 @@ class ActionPreviousButton extends BaseComponentInteraction {
         translator: Translator
     ) {
         logger.debug('No tracks in history.');
-        return await interaction.reply({
+        return await interaction.editReply({
             embeds: [
                 new EmbedBuilder()
                     .setDescription(
@@ -67,13 +86,12 @@ class ActionPreviousButton extends BaseComponentInteraction {
                         })
                     )
                     .setColor(this.embedOptions.colors.warning)
-            ],
-            ephemeral: true
+            ]
         });
     }
 
     private async handleAlreadySkipped(interaction: MessageComponentInteraction, translator: Translator) {
-        return await interaction.reply({
+        return await interaction.editReply({
             embeds: [
                 new EmbedBuilder()
                     .setDescription(
@@ -83,8 +101,7 @@ class ActionPreviousButton extends BaseComponentInteraction {
                     )
                     .setColor(this.embedOptions.colors.warning)
             ],
-            components: [],
-            ephemeral: true
+            components: []
         });
     }
 
@@ -104,7 +121,7 @@ class ActionPreviousButton extends BaseComponentInteraction {
             .setThumbnail(recoveredTrack.thumbnail)
             .setColor(this.embedOptions.colors.success);
 
-        return await interaction.reply({
+        return await interaction.editReply({
             embeds: [successEmbed],
             components: []
         });

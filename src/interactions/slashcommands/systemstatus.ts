@@ -1,7 +1,7 @@
 // @ts-ignore
 import { dependencies, version } from '../../../package.json';
 import { EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import { BaseSlashCommandInteraction } from '../../common/classes/interactions';
+import { BaseSlashCommandInteraction } from '../../common/classes/SlashCommandInteraction';
 import {
     getBotStatistics,
     getDiscordStatus,

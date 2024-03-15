@@ -1,6 +1,6 @@
 import config from 'config';
 import { EmbedBuilder, InteractionType } from 'discord.js';
-import { InteractionValidationError } from '../classes/interactions';
+import { InteractionValidationError } from '../classes/InteractionValidationError';
 import { loggerService, Logger } from '../services/logger';
 import { EmbedOptions, SystemOptions } from '../../types/configTypes';
 import { ValidatorParams } from '../../types/utilTypes';

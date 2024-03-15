@@ -1,6 +1,6 @@
 import { GuildQueue, useMainPlayer, useQueue } from 'discord-player';
 import { ChatInputCommandInteraction, EmbedBuilder, GuildMember, Message, SlashCommandBuilder } from 'discord.js';
-import { BaseSlashCommandInteraction } from '../../common/classes/interactions';
+import { BaseSlashCommandInteraction } from '../../common/classes/SlashCommandInteraction';
 import { BaseSlashCommandParams, BaseSlashCommandReturnType } from '../../types/interactionTypes';
 import { checkInVoiceChannel } from '../../common/validation/voiceChannelValidator';
 import { checkVoicePermissionJoinAndTalk } from '../../common/validation/permissionValidator';

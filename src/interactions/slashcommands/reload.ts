@@ -6,7 +6,7 @@ import {
     SlashCommandBuilder
 } from 'discord.js';
 import { Logger } from '../../common/services/logger';
-import { BaseSlashCommandInteraction } from '../../common/classes/interactions';
+import { BaseSlashCommandInteraction } from '../../common/classes/SlashCommandInteraction';
 import { ExtendedClient } from '../../types/clientTypes';
 import { BaseSlashCommandParams, BaseSlashCommandReturnType } from '../../types/interactionTypes';
 import { checkValidGuildId } from '../../common/validation/systemCommandValidator';

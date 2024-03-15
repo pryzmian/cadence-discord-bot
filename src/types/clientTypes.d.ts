@@ -1,9 +1,7 @@
 import { Client, Collection } from 'discord.js';
-import {
-    BaseAutocompleteInteraction,
-    BaseComponentInteraction,
-    BaseSlashCommandInteraction
-} from '../common/classes/interactions';
+import { BaseSlashCommandInteraction } from '../common/classes/SlashCommandInteraction';
+import { BaseAutocompleteInteraction } from '../common/classes/AutocompleteInteraction';
+import { BaseComponentInteraction } from '../common/classes/ComponentInteraction';
 
 type RegisterClientInteractionsFunction = (params: { client: Client; executionId: string }) => void;
 

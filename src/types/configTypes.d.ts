@@ -34,6 +34,7 @@ export type EmbedOptions = {
         fallbackIconUrl: string;
     };
     colors: {
+        cadence: ColorResolvable;
         success: ColorResolvable;
         warning: ColorResolvable;
         error: ColorResolvable;
@@ -70,6 +71,8 @@ export type EmbedOptions = {
         pauseResumeTrack: string;
         paused: string;
         shuffleQueue: string;
+        previousPage: string;
+        nextPage: string;
         loop: string;
         loopAction: string;
         autoplay: string;

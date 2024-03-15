@@ -507,6 +507,7 @@
         }
     },
     "validation": {
+        "cannotSkipPausedTrack": "{{icon}} **No se pudo saltar la canción**\n No puedes saltar una canción que está en pausa. Reanuda la canción primero antes de saltarla.",
         "cannotJoinVoiceOrTalk": "{{icon}} **Oops!**\nNo tengo permiso para reproducir audio en el canal de voz {{channel}}.\n\nAsegúrate que tenga los permisos para **`Conectar`** y **`Hablar`** en este canal de voz.",
         "cannotSendMessageInChannel": "{{icon}} **Oops!**\nNo tengo permiso para enviar respuestas de mensajes en el canal {{channel}}.\n\nAsegúrate que tenga el permiso **`Ver Canal`** en este canal de texto.",
         "historyDoesNotExist": "{{icon}} **Oops!**\nNo hay canciones en el historial y nada reproduciéndose actualmente. ¡Primero agrega algunas canciones con {{playCommand}}!",

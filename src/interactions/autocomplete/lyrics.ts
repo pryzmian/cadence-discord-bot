@@ -2,7 +2,7 @@ import { LyricsData, lyricsExtractor } from '@discord-player/extractor';
 import { Player, SearchResult, useMainPlayer } from 'discord-player';
 import { ApplicationCommandOptionChoiceData } from 'discord.js';
 import { Logger } from '../../common/services/logger';
-import { BaseAutocompleteInteraction } from '../../common/classes/interactions';
+import { BaseAutocompleteInteraction } from '../../common/classes/AutocompleteInteraction';
 import { getTrackName, isQueryTooShort, shouldUseLastQuery } from '../../common/utils/autocompleteUtils';
 import { BaseAutocompleteParams, BaseAutocompleteReturnType, RecentQuery } from '../../types/interactionTypes';
 import { useUserTranslator, Translator } from '../../common/utils/localeUtil';

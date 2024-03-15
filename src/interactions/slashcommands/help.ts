@@ -13,7 +13,7 @@ import {
     SlashCommandNumberOption,
     SlashCommandStringOption
 } from 'discord.js';
-import { BaseSlashCommandInteraction } from '../../common/classes/interactions';
+import { BaseSlashCommandInteraction } from '../../common/classes/SlashCommandInteraction';
 import { BaseSlashCommandParams, BaseSlashCommandReturnType } from '../../types/interactionTypes';
 import {
     CommandMetadata,

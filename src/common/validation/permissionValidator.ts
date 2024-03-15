@@ -8,7 +8,7 @@ import {
     VoiceBasedChannel,
     VoiceChannel
 } from 'discord.js';
-import { InteractionValidationError } from '../classes/interactions';
+import { InteractionValidationError } from '../classes/InteractionValidationError';
 import { loggerService, Logger } from '../services/logger';
 import { EmbedOptions } from '../../types/configTypes';
 import { ValidatorParams } from '../../types/utilTypes';
