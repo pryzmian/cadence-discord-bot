@@ -106,15 +106,6 @@ export abstract class BaseInteraction {
         queue: GuildQueue | GuildQueueHistory,
         translator: Translator
     ): EmbedFooterData {
-        // const pageIndex: number = (interaction.options.getInteger('page') || 1) - 1;
-        // const totalPages: number = Math.ceil(queue.tracks.data.length / 10) || 1;
-        // return {
-        //     text: translator('musicPlayerCommon.footerPageNumber', {
-        //         page: pageIndex + 1,
-        //         pageCount: totalPages,
-        //         count: queue.tracks.data.length
-        //     })
-        // };
 
         const pageIndex: number = currentPage;
         const tracksPerPage: number = 10;
