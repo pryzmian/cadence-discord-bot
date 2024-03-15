@@ -103,7 +103,7 @@ export abstract class BaseInteraction {
 
     protected getFooterDisplayPageInfo(
         currentPage: number,
-        queue: GuildQueue | GuildQueueHistory,
+        queue: GuildQueue,
         translator: Translator
     ): EmbedFooterData {
 
