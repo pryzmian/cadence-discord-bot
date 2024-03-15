@@ -255,7 +255,11 @@ class QueueCommand extends BaseSlashCommandInteraction {
         queue: GuildQueue,
         translator: Translator
     ): EmbedFooterData {
-        const pagination = this.getFooterDisplayPageInfo((interaction.options.getInteger('page') || 1) - 1, queue, translator);
+        const pagination = this.getFooterDisplayPageInfo(
+            (interaction.options.getInteger('page') || 1) - 1,
+            queue,
+            translator
+        );
         const totalDuration = this.getDisplayQueueTotalDuration(queue, translator);
 
         const fullFooterData = {

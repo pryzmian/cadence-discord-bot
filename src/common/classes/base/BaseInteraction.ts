@@ -2,7 +2,6 @@ import config from 'config';
 import { GuildQueue, GuildQueueHistory, PlayerTimestamp, Track } from 'discord-player';
 import {
     ApplicationCommandOptionChoiceData,
-    ChatInputCommandInteraction,
     EmbedFooterData,
     Interaction,
     Message,
